@@ -67,8 +67,6 @@ A RAG system may have access to sensitive files (e.g., HR records, financial dat
 ---
 ## Threat Diagram
 
-## System Diagram
-
 ```text
                 +----------------------+
                 |   User / Attacker    |
