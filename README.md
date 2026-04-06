@@ -5,6 +5,24 @@
 
 ---
 
+## Team
+
+| Role | Responsibilities |
+|---|---|
+| **Project Lead** | dogaes |
+| **Threat Analyst** | ashdoda |
+| **Defense Engineer** | LukasViski0603 |
+| **RAG Systems Developer** | Mikey-Dowsett |
+| **Evaluation & QA** | mikeumkc |
+
+---
+
+## The Domain
+
+Security of LLM Applications
+
+---
+
 ## Project Overview
 
 RAG (Retrieval-Augmented Generation) chatbots supplement AI responses with domain-specific documents — internal business data, policy files, knowledge bases, and more. This power comes with a risk: **prompt injection attacks** can trick the model into revealing information it was never meant to expose.
@@ -13,14 +31,13 @@ RAG (Retrieval-Augmented Generation) chatbots supplement AI responses with domai
 
 ---
 
-## The Problem
+## System Description
+The system is a Retrieval-Augmented Generation (RAG) chatbot that retrieves information from an internal document store and generates responses using a large language model. User queries are processed through a defensive AI layer before interacting with protected data.
 
-A RAG system may have access to sensitive files (e.g., HR records, financial data, internal policy documents) to answer legitimate queries. Without proper guardrails, a malicious user can craft inputs that:
+---
 
-- Extract raw document content the model should summarize but not quote
-- Bypass access-level restrictions through indirect prompt manipulation
-- Trick the model into ignoring its system prompt or safety instructions
-- Leak confidential data through seemingly innocuous follow-up questions
+## Objective
+The objective of this project is to explore and evaluate a prototype AI-based method for detecting suspicious inputs and demonstrating how they can be handled before reaching critical parts of a system.
 
 ---
 
@@ -36,20 +53,20 @@ A RAG system may have access to sensitive files (e.g., HR records, financial dat
 
 ---
 
-## Team
+## The Problem
 
-| Role | Responsibilities |
-|---|---|
-| **Project Lead** | dogaes |
-| **Threat Analyst** | ashdoda |
-| **Defense Engineer** | LukasViski0603 |
-| **RAG Systems Developer** | Mikey-Dowsett |
-| **Evaluation & QA** | mikeumkc |
+A RAG system may have access to sensitive files (e.g., HR records, financial data, internal policy documents) to answer legitimate queries. Without proper guardrails, a malicious user can craft inputs that:
+
+- Extract raw document content the model should summarize but not quote
+- Bypass access-level restrictions through indirect prompt manipulation
+- Trick the model into ignoring its system prompt or safety instructions
+- Leak confidential data through seemingly innocuous follow-up questions
 
 ---
 
 ## Assets Being Protected
 
+The following assets are considered sensitive and must be protected from unauthorized access or leakage:
 - Source documents used to ground RAG responses (business data, policy files, etc.)
 - The system prompt and model instructions
 - Access control logic governing what information the model is permitted to surface
@@ -65,7 +82,7 @@ A RAG system may have access to sensitive files (e.g., HR records, financial dat
 - Some attacks may be multi-turn (building context across several messages before extracting data)
 
 ---
-## Threat Diagram
+## System Overview Diagram
 
 ```text
                 +----------------------+
