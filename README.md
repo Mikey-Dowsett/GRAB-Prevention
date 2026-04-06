@@ -40,11 +40,11 @@ A RAG system may have access to sensitive files (e.g., HR records, financial dat
 
 | Role | Responsibilities |
 |---|---|
-| **Project Lead** | Coordinates timeline, manages GitHub, leads documentation and final report |
-| **Threat Analyst** | Researches and documents prompt injection attack techniques; builds the initial threat model |
-| **Defense Engineer** | Designs and implements input/output filtering, guardrails, and system prompt hardening |
-| **RAG Systems Developer** | Builds and maintains the test RAG environment (document store + LLM pipeline) |
-| **Evaluation & QA** | Designs test cases, runs red-team prompts against defenses, tracks results and metrics |
+| **Project Lead** | dogaes |
+| **Threat Analyst** | ashdoda |
+| **Defense Engineer** | LukasViski0603 |
+| **RAG Systems Developer** | Mikey-Dowsett |
+| **Evaluation & QA** | mikeumkc |
 
 ---
 
@@ -63,6 +63,45 @@ A RAG system may have access to sensitive files (e.g., HR records, financial dat
 - Attackers will attempt to extract document content through crafted natural language inputs
 - The model is assumed to be a commercially available LLM (e.g., GPT-class) with no fine-tuning
 - Some attacks may be multi-turn (building context across several messages before extracting data)
+
+---
+## Threat Diagram
+
+## System Diagram
+
+```text
+                +----------------------+
+                |   User / Attacker    |
+                |  sends input/request |
+                +----------+-----------+
+                           |
+                           v
+                +----------------------+
+                |   Input Interface    |
+                |  Web app / API / UI  |
+                +----------+-----------+
+                           |
+                           v
+                +----------------------+
+                | Defensive AI Module  |
+                | Detection / Analysis |
+                +----------+-----------+
+                           |
+            +--------------+--------------+
+            |                             |
+            v                             v
++-------------------------+   +--------------------------+
+| Alert / Block / Log     |   | Normal Request Allowed   |
+| suspicious activity     |   | if no threat detected    |
++------------+------------+   +------------+-------------+
+             |                             |
+             v                             v
++--------------------------------------------------------+
+|                Protected Assets                        |
+| model, training data, logs, user accounts, server      |
++--------------------------------------------------------+
+```
+
 
 ---
 
