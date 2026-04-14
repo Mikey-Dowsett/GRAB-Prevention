@@ -10,7 +10,13 @@ load_dotenv()
 
 chroma_client = chromadb.Client()
 collection = chroma_client.create_collection(name="university_policy")
-client = genai.Client()
+client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+
+rag_prompt = """
+You are an HR assistant for Westbrook University.
+Answer the user's question using only the context provided below.
+If the answer is not in the context, say you don't know.
+"""
 
 
 def create_database():
@@ -38,9 +44,8 @@ def query_genai(user_question: str):
     context = "\n\n---\n\n".join(retrieved_docs)
 
     # 3. Send to Gemini with context injected into the prompt
-    prompt = f"""You are an HR assistant for Westbrook University.
-    Answer the user's question using only the context provided below.
-    If the answer is not in the context, say you don't know.
+    prompt = f"""
+    {rag_prompt}
 
     Context:
     {context}
@@ -63,9 +68,8 @@ def query_local(user_question: str):
     context = "\n\n---\n\n".join(results["documents"][0])
 
     # 3. Send to Gemini with context injected into the prompt
-    prompt = f"""You are an HR assistant for Westbrook University.
-    Answer the user's question using only the context provided below.
-    If the answer is not in the context, say you don't know.
+    prompt = f"""
+    {rag_prompt}
 
     Context:
     {context}
@@ -92,5 +96,5 @@ create_database()
 qry = input("Query: ")
 
 # UPDATE for the method you wish to use
-# query_local(qry)
-query_genai(qry)
+query_local(qry)
+# query_genai(qry)
