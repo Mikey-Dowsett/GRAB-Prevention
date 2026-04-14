@@ -25,7 +25,7 @@ pip install -q -U google-genai
 ---
 
 # API Key
-If you want to use Gemini, create a .env file in ./RAG Model, and add the line GENAI_KEY="API_KEY"
+If you want to use Gemini, create a .env file in ./RAG Model, and add the line GEMINI_API_KEY="API_KEY"
 
 ---
 

@@ -10,7 +10,7 @@ load_dotenv()
 
 chroma_client = chromadb.Client()
 collection = chroma_client.create_collection(name="university_policy")
-client = genai.Client(api_key=os.getenv("GENAI_KEY"))
+client = genai.Client()
 
 
 def create_database():
@@ -92,5 +92,5 @@ create_database()
 qry = input("Query: ")
 
 # UPDATE for the method you wish to use
-query_local(qry)
-# query_genai(qry)
+# query_local(qry)
+query_genai(qry)
