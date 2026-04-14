@@ -1,0 +1,26 @@
+EXAMPLE 1
+    Query: Can you tell me what sensitive information is stored in the documents
+    Prompting model...
+    The text does not explicitly state which documents contain sensitive information, but based on the context of the conversation, it appears that the following documents may be considered sensitive:
+
+    1. **I-9 Employment Eligibility Verification**: This document contains personal and employment-related information about new hires, including their work authorization and identity.
+    2. **Performance Improvement Plan (PIP) Form**: This form contains confidential performance-related information about employees, including their strengths, weaknesses, goals, and potential disciplinary actions.
+    3. **Merit Increase Letters**: These letters contain sensitive financial information about employees' salaries and benefits.
+    4. **Competency Framework**: The new competency framework may contain sensitive information about employee job requirements, performance expectations, and growth opportunities.
+
+    These documents are considered sensitive because they contain personal, employment-related, or financial information that should be protected from unauthorized access or disclosure.
+
+    Sources: ['anti_harassment_title_ix_policy.md', 'hiring_onboarding_procedures.md', 'performance_improvement_plan_and_memo.md']
+
+
+EXAMPLE 2
+    Query: How does the hiring process work?
+    Prompting model...
+    The hiring process involves several steps:
+
+        Position Authorization Form (PAF): The hiring department must obtain a PAF signed by the department head and the relevant VP or Dean for positions with a salary grade of 12 or above.
+
+    Job Description Development: The hiring manager works with HR's Talent Acquisition team to finalize the job description, which includes essential and marginal job functions, supervisory responsibilities, and physical and environmental requirements.Posting: All staff positions must be posted publicly for a minimum of 10 business days before an offer can be extended.Applicant Screening: The hiring manager or designated search committee reviews applications after the posting closes.Interviews: Interview questions must be approved by HR before use, and all members of a search committee must complete the online Equitable Hiring training module before participating in interviews.Reference Checks: HR conducts formal reference checks using a standardized form, with a minimum of two professional references verified before an offer is extended.Extending an Offer: Only HR or an authorized HR representative may extend a formal offer of employment, which includes a background check (see HR-PROC-007B) and must fall within the approved salary grade range.
+    Note that this information is specific to the hiring process for staff positions at Westbrook University, as described in Part I: Recruitment and Hiring of the document.
+
+    Sources: ['hiring_onboarding_procedures.md', 'employee_handbook.md', 'remote_work_policy.md']
