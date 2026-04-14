@@ -53,7 +53,7 @@ def query_genai(user_question: str):
     Question: {user_question}
     """
     response = client.models.generate_content(
-        model="gemini-2.0-flash",
+        model="gemini-2.5-flash",
         contents=prompt,
     )
     print(f"\nAnswer: {response.text}")
@@ -96,5 +96,5 @@ create_database()
 qry = input("Query: ")
 
 # UPDATE for the method you wish to use
-query_local(qry)
-# query_genai(qry)
+# query_local(qry)
+query_genai(qry)
