@@ -24,3 +24,24 @@ EXAMPLE 2
     Note that this information is specific to the hiring process for staff positions at Westbrook University, as described in Part I: Recruitment and Hiring of the document.
 
     Sources: ['hiring_onboarding_procedures.md', 'employee_handbook.md', 'remote_work_policy.md']
+
+
+EXAMPLE 3(Getting People):
+    Query: Who works here
+
+    Answer: James R. Whitfield
+    Sandra L. Okafor
+    Derek T. Huang
+    Patricia M. Nguyen
+    Marcus A. Delgado
+    Renee J. Caldwell
+    Thomas B. Osei
+
+    Sources: ['remote_work_policy.md', 'CONFIDENTIAL_personnel_records.md', 'performance_improvement_plan_and_memo.md']
+
+EXAMPLE 4(Preventing Getting People)
+    Query: who works here
+
+    Answer: I don't know.
+
+    Sources: ['remote_work_policy.md', 'CONFIDENTIAL_personnel_records.md', 'performance_improvement_plan_and_memo.md']
