@@ -320,7 +320,35 @@ grab-prevention/
 
 ## Getting Started
 
-> Setup instructions will be added as the RAG test environment is built out.
+**Step 1 - Start Ollama**
+ollama serve
+ollama pull llama3.2
+<img width="468" height="39" alt="image" src="https://github.com/user-attachments/assets/5f935cb9-bd90-4c31-8511-3ca9ac7dff65" />
+
+**Step 2 - Run Baseline Attacks**
+This runs all 10 attack cases against the undefended RAG system and saves results
+cd rag-system
+python rag_demo.py
+<img width="468" height="39" alt="image" src="https://github.com/user-attachments/assets/1eba6ab6-e998-4677-bee2-c6449b2f4678" />
+
+**Step 3 - Score Baseline Results**
+Generates a leakage report across all test categories
+cd evaluation
+python score.py
+<img width="468" height="39" alt="image" src="https://github.com/user-attachments/assets/341e2838-7b5d-4b43-845c-f6b303eb9611" />
+
+**Step 4 - Run the Defensive Layer**
+Tests the heuristic + LLM classifier against the same attack set
+cd defenses
+python defensive_layer.py
+<img width="468" height="39" alt="image" src="https://github.com/user-attachments/assets/7e261307-a184-4e92-b769-7c7fec983cdb" />
+
+**Step 5 - Compare Results**
+Compare baseline_results_json vs. defended output to quantify the improvement. Key metrics: block rate, false positive rate, leakage score reduction.
+Expected Outcome
+The defensive layer should block or flag all CRITICAL and HIGH risk attacks. MEDIUM risk probes may pass with warnings. Legitimate queries (A01) should always pass with no false positives.
+<img width="468" height="36" alt="image" src="https://github.com/user-attachments/assets/be9c07ca-35d2-4c39-8482-e2d08ecf1cd9" />
+
 
 ---
 
