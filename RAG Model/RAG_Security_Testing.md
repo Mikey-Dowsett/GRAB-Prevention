@@ -3,6 +3,20 @@
 
 ---
 
+For this expermintation: 
+
+-Model: llama 3.2 (llama 3.2:1b may result in faster run times)
+
+-RAM: 32GB
+
+-Processor: Intel Ultra 9 288V
+
+-Graphic Cards: Intel Arc 140V GPU (16GB)
+
+*Google Colab would be more efficient.
+
+---
+
 ## Phase 1: Initial Experiment
 
 We began with a basic RAG chatbot using the following security prompt:
