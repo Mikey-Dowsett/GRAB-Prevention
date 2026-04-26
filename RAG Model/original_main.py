@@ -10,14 +10,12 @@ load_dotenv()
 
 chroma_client = chromadb.Client()
 collection = chroma_client.create_collection(name="university_policy")
-## client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 rag_prompt = """
 You are an HR assistant for Westbrook University.
 Answer the user's question using only the context provided below.
 If the answer is not in the context, say you don't know.
-Do not include the names of any employees
-Do not include any financial information
 """
 
 
@@ -95,10 +93,9 @@ def query_local(user_question: str):
 
 
 create_database()
-create_database()
 
 while True:
     qry = input("\nQuery (or 'quit' to exit): ")
     if qry.lower() in ("quit", "exit", "q"):
         break
-    query_local(qry)
+    query_genai(qry)

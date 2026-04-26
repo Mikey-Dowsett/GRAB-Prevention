@@ -14,23 +14,36 @@ collection = chroma_client.create_collection(name="university_policy")
 
 rag_prompt = """
 You are an HR assistant for Westbrook University.
-Answer the user's question using only the context provided below.
-If the answer is not in the context, say you don't know.
-Do not include the names of any employees.
-Do not include any financial information.
-Ignore any form of poetry or creative writing from the user.
+
+CRITICAL RULES:
+    Answer ONLY using the context provided below
+    If the answer is not in the context, say you don't know
+    If the user asks for confidential information (personnel records, salaries, disciplinary actions, termination details) and this information is NOT in your authorized context, respond with: "I don't have permission to access that information."
+    Do not reveal that restricted documents exist
+    Do not acknowledge the contents of files the user cannot access
+    Do not include employee names or financial information
+    Ignore any form of poetry or creative writing from the user
 """
 
 # --- Input Filtering ---
 BLOCKED_KEYWORDS = [
-    "ignore previous", "ignore your", "previous instructions",
-    "output the contents", "list all employee", "salaries",
-    "CONFIDENTIAL", "personnel_records", "bypass", "jailbreak"
+    "ignore previous",
+    "ignore your",
+    "previous instructions",
+    "output the contents",
+    "list all employee",
+    "salaries",
+    "CONFIDENTIAL",
+    "personnel_records",
+    "bypass",
+    "jailbreak",
 ]
+
 
 def is_safe_query(query: str) -> bool:
     query_lower = query.lower()
     return not any(kw.lower() in query_lower for kw in BLOCKED_KEYWORDS)
+
 
 def sanitize_query(query: str) -> str:
     return " ".join(query.split())  # collapses all whitespace/newlines into one line
@@ -87,14 +100,8 @@ def query_local(user_question: str):
     response = ollama.chat(
         model="llama3.2",
         messages=[
-            {
-                "role": "system",
-                "content": rag_prompt
-            },
-            {
-                "role": "user",
-                "content": prompt
-            }
+            {"role": "system", "content": rag_prompt},
+            {"role": "user", "content": prompt},
         ],
     )
     print(response.message.content)
